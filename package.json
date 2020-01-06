@@ -1,0 +1,12 @@
+{
+  "name": "vanilla-js-single-page-app",
+  "version": "1.0.0",
+  "description": "Single Page App built with pure JavaScript.",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start": "npx live-server --verbose"
+  },
+  "author": "Mateusz Pyzowski",
+  "license": "ISC"
+}
