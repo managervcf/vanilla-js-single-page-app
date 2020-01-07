@@ -1,4 +1,4 @@
-// Define data source.
+// Define data fetching function.
 const getItems = async () => {
   try {
     let apiUrl = `https://www.breakingbadapi.com/api/characters`;
@@ -15,6 +15,7 @@ const getItems = async () => {
 const Home = {
   render: async () => {
     let items = await getItems();
+    // Map over result array and build card components.
     let itemList = items
       .map(
         ({ name, img, char_id }) => /*html*/ `

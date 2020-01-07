@@ -1,7 +1,7 @@
 // Import utils to extract id from url.
 import utils from '../../services/utils.js';
 
-// Define data source.
+// Define data fetching function.
 const getItem = async id => {
   try {
     let apiUrl = `https://www.breakingbadapi.com/api/characters/${id}`;

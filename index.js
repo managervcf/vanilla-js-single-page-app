@@ -10,7 +10,8 @@ import Footer from './views/components/Footer.js';
 
 import utils from './services/utils.js';
 
-// List of supported routes. Any url other than these routes will throw a 404 error.
+// List of supported routes.
+// Any url other than these routes will render 404 page.
 const routes = {
   '/': Home,
   '/about': About,
@@ -21,14 +22,13 @@ const routes = {
 // The router code. Takes a URL, checks against the list of
 // supported routes and then renders the corresponding content page.
 const router = async () => {
-  // App has 3 main elements: header, content and footer.
   // Lazy load view element:
   let header = null || document.getElementById('header_container');
   let content = null || document.getElementById('page_container');
   let footer = null || document.getElementById('footer_container');
 
   // Render the header and footer of the page. After_render function takes
-  // care of other JScode, because they cannot be added to innerHTML.
+  // care of other JScode as it cannot be added through innerHTML.
   header.innerHTML = await Navbar.render();
   await Navbar.after_render();
   footer.innerHTML = await Footer.render();
