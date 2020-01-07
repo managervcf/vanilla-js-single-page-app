@@ -1,7 +1,7 @@
 const Footer = {
   render: async () => {
     return /*html*/ `
-      <p class="text-center mt-4"><em>Single Page App template build with Vanilla JavaScript.</em></p>  
+      <p class="text-center mt-4"><em>Single Page App built with Vanilla JavaScript.</em></p>  
       <p class="text-center"><em><a href="https://github.com/managervcf">Mateusz Pyzowski</a></em></p>  
       <p class="text-center "><em id="time"></em></p>  
     `;
