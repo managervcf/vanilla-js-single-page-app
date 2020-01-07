@@ -1,12 +1,12 @@
 const utils = {
   // Parse a url and break it into resource, id and verb.
   parseRequestUrl: () => {
+    // Print current location to console.
+    console.log(`(App) Current location: ${location.hash || '/'}`);
     // Convert location.hash into an url.
     let url = location.hash.slice(2).toLowerCase() || '/';
-    console.log(url);
 
-    // Split url into params array which looks like:
-    // [resource, id, verb]
+    // Split url into params array :[resource, id, verb].
     let params = url.split('/');
 
     // Create request variable.

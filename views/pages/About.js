@@ -1,11 +1,11 @@
-const Error404 = {
+const About = {
   render: async () => {
     return /*html*/ `
       <section>
-        <h1 class="text-center">Error 404. Page not found.</h1>
+        <h1 class="text-center">This can be an about page.</h1>
       </section>
     `;
   },
   after_render: async () => {}
 };
-export default Error404;
+export default About;
