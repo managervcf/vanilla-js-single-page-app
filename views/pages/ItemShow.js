@@ -1,5 +1,5 @@
 // Import utils to extract id from url.
-import utils from '../../services/utils.js';
+import { parseRequestUrl } from '../../services/utils.js';
 
 // Define data fetching function.
 const getItem = async id => {
@@ -17,7 +17,7 @@ const getItem = async id => {
 
 const ItemShow = {
   render: async () => {
-    let params = utils.parseRequestUrl();
+    let params = parseRequestUrl();
     let { name, nickname, img, birthday, portrayed } = await getItem(params.id);
     return /*html*/ `
       <section class="container-md" style="width: 20rem;">

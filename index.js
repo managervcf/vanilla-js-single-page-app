@@ -8,7 +8,7 @@ import Error404 from './views/pages/Error404.js';
 import Navbar from './views/components/Navbar.js';
 import Footer from './views/components/Footer.js';
 
-import utils from './services/utils.js';
+import { parseRequestUrl } from './services/utils.js';
 
 // List of supported routes.
 // Any url other than these routes will render 404 page.
@@ -35,7 +35,7 @@ const router = async () => {
   await Footer.after_render();
 
   // Get the parsed URl from the addressbar.
-  let { resource, id, verb } = utils.parseRequestUrl();
+  let { resource, id, verb } = parseRequestUrl();
 
   // Parse the URL and if it has an id part, change it with the string ":id".
   let parsedUrl =
