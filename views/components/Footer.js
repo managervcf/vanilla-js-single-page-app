@@ -1,7 +1,8 @@
 const Footer = {
   render: async () => {
     return /*html*/ `
-      <p class="text-center mt-4"><em>Single Page App template build with VanillaJS by <a href="https://github.com/managervcf">Mateusz Pyzowski</a></em></p>  
+      <p class="text-center mt-4"><em>Single Page App template build with Vanilla JavaScript.</em></p>  
+      <p class="text-center"><em><a href="https://github.com/managervcf">Mateusz Pyzowski</a></em></p>  
       <p class="text-center "><em id="time"></em></p>  
     `;
   },
@@ -10,10 +11,14 @@ const Footer = {
   after_render: async () => {
     let time = document.querySelector('#time');
     let updateTime = () => {
-      let clock = new Date().toTimeString().slice(0, 8);
-      let date = new Date().toLocaleDateString().slice(0, 8);
+      // Get current time.
+      let newDate = new Date();
+      let clock = newDate.toTimeString().slice(0, 8);
+      let date = newDate.toLocaleDateString().slice(0, 8);
+      // Insert formatted clock and date into footer inner html.
       time.innerHTML = `${clock} ${date}`;
     };
+    // Update footer at load and every 1000 ms.
     updateTime();
     setInterval(updateTime, 1000);
   }
