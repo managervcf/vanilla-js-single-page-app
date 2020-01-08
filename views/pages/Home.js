@@ -1,21 +1,35 @@
-// Define data fetching function.
+/**
+ * Fetch data from external API.
+ * @return {Array} Data fetched.
+ */
 const getItems = async () => {
   try {
+    // Set API url.
     let apiUrl = `https://www.breakingbadapi.com/api/characters`;
+    // Create options for the fetch function.
     let options = { cache: 'force-cache' };
+    // Get a response from the API.
     let response = await fetch(apiUrl, options);
+    // Parse response into JSON.
     let data = await response.json();
+    // Print fetched data to the console.
     console.log('(App) Data fetched from API:', data);
+    // Return fetched data.
     return data;
   } catch (error) {
+    // Print catched error to the console.
     console.log('(App) Error occured while getting data.', error);
   }
 };
 
 const Home = {
+  /**
+   * Render the page content.
+   */
   render: async () => {
+    // Get items data.
     let items = await getItems();
-    // Map over result array and build card components.
+    // Map over items and build card components.
     let itemList = items
       .map(
         ({ name, img, char_id }) => /*html*/ `
@@ -41,6 +55,10 @@ const Home = {
       </section>  
     `;
   },
+  /**
+   * All the code related to DOM interactions and controls go in here.
+   * This is a separate call as these can be registered only after the DOM has been painted.
+   */
   after_render: async () => {}
 };
 

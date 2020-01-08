@@ -1,21 +1,35 @@
 // Import utils to extract id from url.
 import { parseRequestUrl } from '../../services/utils.js';
 
-// Define data fetching function.
+/**
+ * Fetch data from external API.
+ * @param  {String} id Item's id.
+ * @return {Object}    Data fetched.
+ */
 const getItem = async id => {
   try {
+    // Set API url.
     let apiUrl = `https://www.breakingbadapi.com/api/characters/${id}`;
+    // Create options for the fetch function.
     let options = { cache: 'force-cache' };
+    // Get a response from the API.
     let response = await fetch(apiUrl, options);
+    // Parse and destructure response into JSON.
     let [data] = await response.json();
+    // Print fetched data to the console.
     console.log('(App) Data fetched from API:', data);
+    // Return fetched data.
     return data;
   } catch (error) {
+    // Print catched error to the console.
     console.log('(App) Error occured while getting data.', error);
   }
 };
 
 const ItemShow = {
+  /**
+   * Render the page content.
+   */
   render: async () => {
     let params = parseRequestUrl();
     let { name, nickname, img, birthday, portrayed } = await getItem(params.id);
