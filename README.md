@@ -32,4 +32,4 @@ By default, the app is hosted at port 8080 unless specified otherwise. Open [htt
 
 ## Production
 
-The app has not been deployed yet.
+The app is deployed using Netlify, view it [here](https://vanilla-js-single-page-app.netlify.com).
