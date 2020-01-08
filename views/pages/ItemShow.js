@@ -31,7 +31,9 @@ const ItemShow = {
    * Render the page content.
    */
   render: async () => {
+    // Get current URL params.
     let params = parseRequestUrl();
+    // Get destructured data from API based on id provided.
     let { name, nickname, img, birthday, portrayed } = await getItem(params.id);
     return /*html*/ `
       <section class="container-md" style="width: 20rem;">
@@ -51,6 +53,7 @@ const ItemShow = {
   // All the code related to DOM interactions and controls go in here.
   // This is a separate call as these can be registered only after the DOM has been painted.
   after_render: async () => {
+    // Add event listener with a simple alert.
     document
       .querySelector('#characterImage')
       .addEventListener('click', () => alert('You have clicked on the photo!'));
