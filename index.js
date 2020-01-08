@@ -1,6 +1,7 @@
 // Import pages, components and helper functions.
 import Home from './views/pages/Home.js';
 import About from './views/pages/About.js';
+import Items from './views/pages/Items.js';
 import ItemShow from './views/pages/ItemShow.js';
 import Register from './views/pages/Register.js';
 import Error404 from './views/pages/Error404.js';
@@ -14,7 +15,8 @@ import { parseRequestUrl } from './services/utils.js';
 const routes = {
   '/': Home,
   '/about': About,
-  '/i/:id': ItemShow,
+  "/items": Items,
+  '/items/:id': ItemShow,
   '/register': Register
 };
 

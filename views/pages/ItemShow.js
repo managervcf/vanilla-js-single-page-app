@@ -42,7 +42,7 @@ const ItemShow = {
             <p class="card-text">Known as ${nickname}.</p>
             <p class="card-text">Birthday ${birthday}.</p>
             <p class="card-text">Played by ${portrayed}.</p>
-            <a href="/#" class="btn btn-dark">Go Back</a>
+            <a href="/#/items" class="btn btn-dark">Go Back</a>
           </div>
         </div>
       </section>
