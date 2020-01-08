@@ -1,4 +1,7 @@
 const Footer = {
+  /**
+   * Render the component content.
+   */
   render: async () => {
     return /*html*/ `
       <p class="text-center mt-4"><em>Single Page App built with Vanilla JavaScript.</em></p>  
@@ -6,19 +9,27 @@ const Footer = {
       <p class="text-center "><em id="time"></em></p>  
     `;
   },
-  // All the code related to DOM interactions and controls go in here.
-  // This is a separate call as these can be registered only after the DOM has been painted.
+  /**
+   * All the code related to DOM interactions and controls go in here.
+   * This is a separate call as these can be registered only after the DOM has been painted.
+   */
   after_render: async () => {
+    // Select a node that will contain the clock and date.
     let time = document.querySelector('#time');
+
+    /**
+     * Set inner html of selected node to current time and update it every second.
+     */
     let updateTime = () => {
-      // Get current time.
+      // Get current time and format a clock and date.
       let newDate = new Date();
       let clock = newDate.toTimeString().slice(0, 8);
       let date = newDate.toLocaleDateString().slice(0, 8);
       // Insert formatted clock and date into footer inner html.
       time.innerHTML = `${clock} ${date}`;
     };
-    // Update footer at load and every 1000 ms.
+
+    // Set node content and update it every second.
     updateTime();
     setInterval(updateTime, 1000);
   }

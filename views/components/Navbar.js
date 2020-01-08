@@ -1,5 +1,9 @@
 const Navbar = {
+  /**
+   * Render the component content.
+   */
   render: async () => {
+    // Define a list of navbar links.
     let links = ['About', 'Register', 'Secret'];
     // Build html with navigation links.
     let navLinks = links
@@ -19,6 +23,10 @@ const Navbar = {
       </nav>
     `;
   },
+  /**
+   * All the code related to DOM interactions and controls go in here.
+   * This is a separate call as these can be registered only after the DOM has been painted.
+   */
   after_render: async () => {}
 };
 
