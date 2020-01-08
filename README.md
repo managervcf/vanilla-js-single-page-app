@@ -24,9 +24,9 @@ The app consists of `components` and `pages`, both included inside `views` direc
 
 ## Development
 
-As there are no dependencies used, there is no need to install anything. Just type `npm start` in your command line to run the app. As simple as that.
+As there are no dependencies used, there is no need to install anything. Just type `npm run dev` in your command line to run the app. As simple as that.
 
-The `npx live-server --verbose` command hidden under the `npm start` script will execute the app for you using live-server. It will open the app and watch it for changes.
+The `npx live-server --verbose` command hidden under the `npm run dev` script will execute the app for you using live-server. It will open the app and watch it for changes.
 
 By default, the app is hosted at port 8080 unless specified otherwise. Open [http://localhost:8080](http://localhost:8080) to view it in the browser.
 
