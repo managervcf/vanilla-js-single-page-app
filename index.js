@@ -15,7 +15,7 @@ import { parseRequestUrl } from './services/utils.js';
 const routes = {
   '/': Home,
   '/about': About,
-  "/items": Items,
+  '/items': Items,
   '/items/:id': ItemShow,
   '/register': Register
 };
