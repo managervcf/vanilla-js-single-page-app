@@ -5,7 +5,7 @@ const Navbar = {
     let navLinks = links
       .map(
         link =>
-          /*html*/ `<li class="nav-item"><a class="nav-link" href="/#${link.toLowerCase()}">${link}</a></li>`
+          /*html*/ `<li class="nav-item"><a class="nav-link" href="/#/${link.toLowerCase()}">${link}</a></li>`
       )
       .join('\n');
     return /*html*/ `
