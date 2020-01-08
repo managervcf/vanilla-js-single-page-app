@@ -24,9 +24,9 @@ const routes = {
  */
 const router = async () => {
   // Lazy load view element:
-  let header = null || document.getElementById('header_container');
-  let content = null || document.getElementById('page_container');
-  let footer = null || document.getElementById('footer_container');
+  let header = null || document.getElementById('header_root');
+  let content = null || document.getElementById('page_root');
+  let footer = null || document.getElementById('footer_root');
 
   // Render the header and footer of the page.
   header.innerHTML = await Navbar.render();
