@@ -10,8 +10,7 @@ import Footer from './views/components/Footer.js';
 
 import { parseRequestUrl } from './services/utils.js';
 
-// List of supported routes.
-// Any url other than these routes will render 404 page.
+// List of supported routes. Any url other than these will render 404 page.
 const routes = {
   '/': Home,
   '/about': About,
@@ -19,22 +18,23 @@ const routes = {
   '/register': Register
 };
 
-// The router code. Takes a URL, checks against the list of
-// supported routes and then renders the corresponding content page.
+/**
+ * The router code. Takes a URL, checks against the list of
+ * supported routes and then renders the corresponding content page.
+ */
 const router = async () => {
   // Lazy load view element:
   let header = null || document.getElementById('header_container');
   let content = null || document.getElementById('page_container');
   let footer = null || document.getElementById('footer_container');
 
-  // Render the header and footer of the page. After_render function takes
-  // care of other JScode as it cannot be added through innerHTML.
+  // Render the header and footer of the page.
   header.innerHTML = await Navbar.render();
   await Navbar.after_render();
   footer.innerHTML = await Footer.render();
   await Footer.after_render();
 
-  // Get the parsed URl from the addressbar.
+  // Destructure the parsed URl from the addressbar.
   let { resource, id, verb } = parseRequestUrl();
 
   // Parse the URL and if it has an id part, change it with the string ":id".
@@ -43,12 +43,15 @@ const router = async () => {
     (id ? '/:id' : '') +
     (verb ? '/' + verb : '');
 
-  // Get the page from our hash of supported routes.
-  // If the parsed URL is not in our list of supported routes, render 404 page instead.
+  // Render the page from map of supported routes or render 404 page.
   let page = routes[parsedUrl] || Error404;
   content.innerHTML = await page.render();
   await page.after_render();
 };
+
+/**
+ * Add event listeners
+ */
 
 // Listen on hash change.
 window.addEventListener('hashchange', router);
