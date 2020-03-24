@@ -26,9 +26,9 @@ const routes = {
  */
 const router = async () => {
   // Lazy load view element:
-  let header = null || document.getElementById('header_root');
-  let content = null || document.getElementById('page_root');
-  let footer = null || document.getElementById('footer_root');
+  const header = null || document.getElementById('header_root');
+  const content = null || document.getElementById('page_root');
+  const footer = null || document.getElementById('footer_root');
 
   // Render the header and footer of the page.
   header.innerHTML = await Navbar.render();
@@ -37,16 +37,16 @@ const router = async () => {
   await Footer.after_render();
 
   // Destructure the parsed URl from the addressbar.
-  let { resource, id, verb } = parseRequestUrl();
+  const { resource, id, verb } = parseRequestUrl();
 
   // Parse the URL and if it has an id part, change it with the string ":id".
-  let parsedUrl =
+  const parsedUrl =
     (resource ? '/' + resource : '/') +
     (id ? '/:id' : '') +
     (verb ? '/' + verb : '');
 
   // Render the page from map of supported routes or render 404 page.
-  let page = routes[parsedUrl] || Error404;
+  const page = routes[parsedUrl] || Error404;
   content.innerHTML = await page.render();
   await page.after_render();
 };

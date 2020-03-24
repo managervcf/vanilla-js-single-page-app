@@ -4,13 +4,13 @@
  */
 export const parseRequestUrl = () => {
   // Convert location hash into an url.
-  let path = location.hash.slice(2).toLowerCase() || '/';
+  const path = location.hash.slice(2).toLowerCase() || '/';
 
   // Split url into params array: [resource, id, verb].
-  let params = path.split('/');
+  const params = path.split('/');
 
   // Build request variable.
-  let request = {
+  const request = {
     resource: params[0] || null,
     id: params[1] || null,
     verb: params[2] || null

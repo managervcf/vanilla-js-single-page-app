@@ -9,13 +9,13 @@ import { parseRequestUrl } from '../../services/utils.js';
 const getItem = async id => {
   try {
     // Set API url.
-    let apiUrl = `https://www.breakingbadapi.com/api/characters/${id}`;
+    const apiUrl = `https://www.breakingbadapi.com/api/characters/${id}`;
     // Create options for the fetch function.
-    let options = { cache: 'force-cache' };
+    const options = { cache: 'force-cache' };
     // Get a response from the API.
-    let response = await fetch(apiUrl, options);
+    const response = await fetch(apiUrl, options);
     // Parse and destructure response into JSON.
-    let [data] = await response.json();
+    const [data] = await response.json();
     // Print fetched data to the console.
     console.log('(App) Data fetched from API:', data);
     // Return fetched data.
@@ -32,9 +32,11 @@ const ItemShow = {
    */
   render: async () => {
     // Get current URL params.
-    let params = parseRequestUrl();
+    const params = parseRequestUrl();
     // Get destructured data from API based on id provided.
-    let { name, nickname, img, birthday, portrayed } = await getItem(params.id);
+    const { name, nickname, img, birthday, portrayed } = await getItem(
+      params.id
+    );
     return /*html*/ `
       <section class="container-md" style="width: 20rem;">
         <div class="card">

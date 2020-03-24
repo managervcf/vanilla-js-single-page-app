@@ -15,16 +15,16 @@ const Footer = {
    */
   after_render: async () => {
     // Select a node that will contain the clock and date.
-    let time = document.querySelector('#time');
+    const time = document.querySelector('#time');
 
     /**
      * Set inner html of selected node to current time and update it every second.
      */
-    let updateTime = () => {
+    const updateTime = () => {
       // Get current time and format a clock and date.
-      let newDate = new Date();
-      let clock = newDate.toTimeString().slice(0, 8);
-      let date = newDate.toLocaleDateString().slice(0, 8);
+      const newDate = new Date();
+      const clock = newDate.toTimeString().slice(0, 8);
+      const date = newDate.toLocaleDateString().slice(0, 8);
       // Insert formatted clock and date into footer inner html.
       time.innerHTML = `${clock} ${date}`;
     };
